@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Tools 與 Skills 教學</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        header h1 { font-size: 2em; margin-bottom: 10px; }
+        .slide { padding: 30px 40px; border-bottom: 1px solid #eee; }
+        .slide h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        .slide h3 { color: #333; font-size: 1.2em; margin: 20px 0 10px; }
+        .slide p { margin-bottom: 12px; }
+        .highlight {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th { background: #667eea; color: white; }
+        .code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .danger { color: #dc3545; font-weight: bold; }
+        .safe { color: #28a745; font-weight: bold; }
+        .medium { color: #ffc107; font-weight: bold; }
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 OpenClaw Tools 與 Skills 教學</h1>
+            <p> Jarvis 的工具箱使用指南</p>
+        </header>
+        
+        <div class="slide">
+            <h2>📚 Tools vs Skills 有什麼不一樣？</h2>
+            <div class="highlight">
+                <p><strong>Tools = 器官</strong>：決定 OpenClaw「能不能」做某件事</p>
+                <p><strong>Skills = 教科書</strong>：教 OpenClaw「怎麼組合」Tools 來完成任務</p>
+            </div>
+            <p>簡單說：沒有 Tools 就沒有手，沒有 Skills 不知道怎麼做事。</p>
+        </div>
+        
+        <div class="slide">
+            <h2>🔧 Layer 1：核心能力（8 Tools）</h2>
+            <p>幾乎每個人都會開的基本能力：</p>
+            <table>
+                <tr><th>Tool</th><th>功能</th><th>風險</th></tr>
+                <tr><td>read</td><td>讀取檔案</td><td class="safe">低</td></tr>
+                <tr><td>write</td><td>寫入檔案</td><td class="medium">中</td></tr>
+                <tr><td>edit</td><td>編輯檔案</td><td class="medium">中</td></tr>
+                <tr><td>exec</td><td>執行命令</td><td class="danger">極高</td></tr>
+                <tr><td>process</td><td>管理程序</td><td class="medium">中</td></tr>
+                <tr><td>web_search</td><td>Google 搜尋</td><td class="safe">低</td></tr>
+                <tr><td>web_fetch</td><td>抓取網頁</td><td class="medium">中</td></tr>
+            </table>
+        </div>
+        
+        <div class="slide">
+            <h2>🚀 Layer 2：進階能力（18 Tools）</h2>
+            <p>讓 OpenClaw 變成真正的助理：</p>
+            <table>
+                <tr><th>Tool</th><th>功能</th><th>風險</th></tr>
+                <tr><td>browser</td><td>操作 Chrome 瀏覽器</td><td class="danger">高</td></tr>
+                <tr><td>image</td><td>分析圖片</td><td class="safe">低</td></tr>
+                <tr><td>memory_search</td><td>搜尋記憶</td><td class="medium">中</td></tr>
+                <tr><td>message</td><td>發訊息（Discord/Telegram/WhatsApp）</td><td class="danger">極高</td></tr>
+                <tr><td>cron</td><td>定時任務</td><td class="danger">高</td></tr>
+                <tr><td>tts</td><td>文字轉語音</td><td class="safe">低</td></tr>
+                <tr><td>nodes</td><td>控制硬體（截圖/相機）</td><td class="danger">極高</td></tr>
+            </table>
+        </div>
+        
+        <div class="slide">
+            <h2>⚠️ 重要安全原則</h2>
+            <div class="warning">
+                <p><strong>1. exec 開審批</strong></p>
+                <p>開 exec 的同時設定審批，讓每個命令執行前都要經過你確認。</p>
+            </div>
+            <div class="warning">
+                <p><strong>2. message 只傳給自己</strong></p>
+                <p>不要讓 OpenClaw 代替你跟任何人溝通——訊息發出去就收不回來了。</p>
+            </div>
+            <div class="warning">
+                <p><strong>3. 最後一哩自己來</strong></p>
+                <p>結帳、付款、發文——這些不可逆的動作不要交給 AI。</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <h2>📝 常用 Skills 推薦</h2>
+            <table>
+                <tr><th>場景</th><th>Skill</th><th>功能</th></tr>
+                <tr><td>筆記</td><td>obsidian</td><td>整理筆記</td></tr>
+                <tr><td>工作</td><td>gog</td><td>Email/日曆/雲端</td></tr>
+                <tr><td>天氣</td><td>weather</td><td>查天氣預報</td></tr>
+                <tr><td>開發</td><td>github</td><td>操作 GitHub</td></tr>
+                <tr><td>健康</td><td>healthcheck</td><td>系統安全檢查</td></tr>
+            </table>
+        </div>
+        
+        <div class="slide">
+            <h2>⚙️ Jarvis 目前設定</h2>
+            <div class="success">
+                <p><strong>✅ 已開啟的 Tools：</strong></p>
+                <p>read, write, edit, exec, process, web_search, web_fetch, browser, image, tts, memory_search, memory_get, sessions 系列, message, cron, gateway</p>
+            </div>
+            <div class="warning">
+                <p><strong>❌ 已關閉的 Tools：</strong></p>
+                <p>nodes（想不到使用場景）</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <h2>🎯 我能幫你做什麼？</h2>
+            <div class="highlight">
+                <p>✅ 每日新聞簡報（AI + 天氣）</p>
+                <p>✅ 每日英文單字練習</p>
+                <p>✅ 記帳管理</p>
+                <p>✅ 搜尋網路資料</p>
+                <p>✅ 製作網頁/報告</p>
+                <p>✅ 排程提醒（看診、更新日）</p>
+                <p>✅ 語音朗讀（TTS）</p>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <h2>💡 如何開始？</h2>
+            <p>1. 安裝 OpenClaw</p>
+            <p>2. 設定 openclaw.json</p>
+            <p>3. 選擇需要的 Tools 和 Skills</p>
+            <p>4. 開始使用！</p>
+            <div class="code">
+                {<br>
+                &nbsp;"tools": {<br>
+                &nbsp;&nbsp;"allow": ["read", "write", "web_search", ...],<br>
+                &nbsp;&nbsp;"deny": ["nodes"]<br>
+                &nbsp;},<br>
+                &nbsp;"approvals": {<br>
+                &nbsp;&nbsp;"exec": { "enabled": true }<br>
+                &nbsp;}<br>
+                }
+            </div>
+        </div>
+        
+        <footer>
+            <p>🤖 教學簡報 | 產生日期：2026年3月19日</p>
+        </footer>
+    </div>
+</body>
+</html>
