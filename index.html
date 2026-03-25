@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#353436",
+              "on-background": "#e5e2e3",
+              "primary-container": "#00e5ff",
+              "on-primary-fixed": "#001f24",
+              "on-tertiary": "#2f3131",
+              "background": "#131314",
+              "inverse-primary": "#006875",
+              "surface": "#131314",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#474646",
+              "primary": "#c3f5ff",
+              "surface-container-high": "#2a2a2b",
+              "outline": "#849396",
+              "secondary-fixed": "#e5e2e1",
+              "on-surface-variant": "#bac9cc",
+              "surface-container-highest": "#353436",
+              "on-tertiary-container": "#575959",
+              "surface-container-low": "#1c1b1c",
+              "tertiary-container": "#d0d0d0",
+              "surface-dim": "#131314",
+              "surface-tint": "#00daf3",
+              "on-tertiary-fixed-variant": "#454747",
+              "primary-fixed": "#9cf0ff",
+              "tertiary": "#ececec",
+              "on-error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#004f58",
+              "on-tertiary-fixed": "#1a1c1c",
+              "surface-container-lowest": "#0e0e0f",
+              "on-primary": "#00363d",
+              "on-primary-container": "#00626e",
+              "inverse-surface": "#e5e2e3",
+              "secondary-container": "#4a4949",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "on-secondary": "#313030",
+              "secondary-fixed-dim": "#c8c6c5",
+              "on-secondary-container": "#bab8b7",
+              "secondary": "#c8c6c5",
+              "on-secondary-fixed": "#1c1b1b",
+              "surface-container": "#201f20",
+              "on-surface": "#e5e2e3",
+              "inverse-on-surface": "#313031",
+              "error-container": "#93000a",
+              "surface-bright": "#3a393a",
+              "on-error": "#690005",
+              "outline-variant": "#3b494c",
+              "primary-fixed-dim": "#00daf3",
+              "tertiary-fixed": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(45deg, #c3f5ff 0%, #00daf3 100%);
+        }
+        body {
+            background-color: #131314;
+            color: #e5e2e3;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #353436;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-fixed">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-6 bg-[#131314]/80 backdrop-blur-xl no-border bg-[#1c1b1c]/50 flat no shadows">
+<div class="font-spaceGrotesk text-2xl font-bold tracking-tighter text-[#c3f5ff] hover:scale-105 transition-transform duration-300 cursor-pointer">
+        CLAUDE.AI
+    </div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-spaceGrotesk font-bold tracking-tight text-sm uppercase text-[#c3f5ff] border-b-2 border-[#00e5ff] pb-1 hover:scale-105 transition-transform duration-300" href="#artifacts">Artifacts</a>
+<a class="font-spaceGrotesk font-bold tracking-tight text-sm uppercase text-[#bac9cc] hover:text-[#e5e2e3] hover:scale-105 transition-transform duration-300" href="#computer">Computer Use</a>
+<a class="font-spaceGrotesk font-bold tracking-tight text-sm uppercase text-[#bac9cc] hover:text-[#e5e2e3] hover:scale-105 transition-transform duration-300" href="#code">Claude Code</a>
+<a class="font-spaceGrotesk font-bold tracking-tight text-sm uppercase text-[#bac9cc] hover:text-[#e5e2e3] hover:scale-105 transition-transform duration-300" href="#pricing">Pricing</a>
+</div>
+<button class="bg-gradient-to-r from-[#c3f5ff] to-[#00daf3] text-[#001f24] font-headline font-bold px-8 py-3 rounded-none uppercase text-xs tracking-widest hover:scale-105 active:scale-95 transition-all duration-300">
+        Get Started
+    </button>
+</nav>
+<!-- Side Navigation -->
+<aside class="h-screen w-72 fixed left-0 top-0 hidden lg:flex flex-col bg-[#1c1b1c] p-8 gap-6 z-40 pt-32 no-border custom-scrollbar overflow-y-auto">
+<div class="mb-8">
+<h3 class="font-headline font-bold text-[#c3f5ff] text-xl tracking-tight">Curated Chapters</h3>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mt-1">Tutorial Anthology</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 p-3 rounded-none text-[#00e5ff] font-bold bg-[#131314] font-manrope text-sm transition-colors" href="#intro">
+<span class="material-symbols-outlined" data-icon="info">info</span> Introduction
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#capabilities">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span> 核心能力
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#operation">
+<span class="material-symbols-outlined" data-icon="touch_app">touch_app</span> 操作技巧
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#artifacts">
+<span class="material-symbols-outlined" data-icon="layers">layers</span> Artifacts
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#computer">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> Computer Use
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#code">
+<span class="material-symbols-outlined" data-icon="code">code</span> Claude Code
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#skills">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span> Claude Skills
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#pricing">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> 訂閱方案
+        </a>
+<a class="flex items-center gap-4 p-3 rounded-none text-[#bac9cc] hover:bg-[#131314] font-manrope text-sm transition-colors" href="#faq">
+<span class="material-symbols-outlined" data-icon="help">help</span> FAQ &amp; Resources
+        </a>
+</nav>
+</aside>
+<main class="lg:ml-72 pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="min-h-[90vh] flex flex-col justify-center px-12 lg:px-24 relative overflow-hidden" id="hero">
+<div class="absolute top-1/2 right-0 -translate-y-1/2 w-2/3 h-full opacity-20 pointer-events-none">
+<img alt="" class="w-full h-full object-cover grayscale" data-alt="abstract crystalline digital structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDguA7de-8CzSu0anS2eQUCwqIfYOzJ5ti4-KElVW8KQ9-2iBJai06N3y4AQH-oIjQDXka4sxxJu5i7LQXVyt2Iik6QwhtjbhqWVAteKZYNQ3FTA5JCmq3lH5QEBzCRROXdkyh-zgoU9mWjsZ8DtiazvrdMgTZBdCwL9bBp15g0_93MwPQzdvpLBs6HR2T_ORSH-rwI4EG7aOBnLQs7J3z49MR-RvDzCpI1oTYQpAIK4y48y7bmcNhN4mRCXZGmFFBiMplZiq2Obp8K"/>
+</div>
+<div class="relative z-10 max-w-4xl">
+<span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-6 block">Anthropic Intelligence</span>
+<h1 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
+                CLAUDE AI:<br/><span class="text-primary uppercase">完整教學手冊</span>
+</h1>
+<p class="font-body text-2xl text-on-surface-variant max-w-xl leading-relaxed mb-12">
+                從新手到高手的所有必備知識。深入探討世界最先進 LLM 生態系統的架構、能力與安全協定。
+            </p>
+<div class="flex gap-6">
+<a class="bg-gradient-to-r from-primary to-primary-fixed-dim text-on-primary-fixed px-10 py-4 font-headline font-bold text-sm tracking-widest uppercase transition-transform hover:scale-105 active:scale-95" href="#intro">
+                    開始學習
+                </a>
+<a class="border border-outline-variant/30 px-10 py-4 font-headline font-bold text-sm tracking-widest uppercase text-on-surface hover:bg-surface-container-highest transition-all" href="https://docs.anthropic.com" target="_blank">
+                    官方文件
+                </a>
+</div>
+</div>
+</section>
+<!-- Introduction -->
+<section class="py-32 px-12 lg:px-24 bg-surface-container-low border-y border-outline-variant/10" id="intro">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-6">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-8">認識 Claude AI</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed mb-8">
+                    Claude 3 模型家族由 Anthropic 開發，代表了人工智慧在智慧程度、速度與成本效益方面的新標準。其核心理念在於構建可靠、可解釋且安全的系統。
+                </p>
+<div class="space-y-6">
+<div class="p-8 bg-surface-container-high border-l-4 border-primary">
+<h4 class="font-headline font-bold text-on-surface mb-2">核心哲學 (Constitutional AI)</h4>
+<p class="text-sm text-on-surface-variant">「憲法 AI」引導每一次互動，在不犧牲安全性的前提下，確保提供最有幫助的回應。這是 Claude 與其他模型最顯著的區別之一。</p>
+</div>
+<div class="p-8 bg-surface-container-high border-l-4 border-primary">
+<h4 class="font-headline font-bold text-on-surface mb-2">LLM 生態角色</h4>
+<p class="text-sm text-on-surface-variant">作為產業標竿，Claude 在長文本處理、程式碼編寫與視覺理解方面展現出卓越的平衡，是企業級應用的首選。</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-highest p-8 flex flex-col justify-end group cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="psychology">psychology</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">認知基準測試</h3>
+</div>
+<div class="aspect-square bg-surface-container-lowest p-8 flex flex-col justify-end group cursor-pointer border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="speed">speed</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">延遲分析</h3>
+</div>
+<div class="col-span-2 h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover filter grayscale brightness-50" data-alt="liquid metal ripples" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAotR_d6bEgdqKwnZV8sqJ1ABQ7As8mXmcNQCERe1TQMPi-DAA3xP8ufnkJmaDCM7WK_orgAUScnZ-a3Z2NkDzcP7f-Y5CU3Ayjw9ov4-tQYRzLTLvRLoqITiCqRl9gaVzv9_zPB3YZfgUYnSx-9EzYUgPNjixCObkHBXOh-YoYPrpDuHMu36974F2yX0Xo3eMtEoL8oGX9SaDLAy3WfwoM8VTyjzaLukEEEK2pLN7VENF7XLgF1VJSbVj8bmH8BxYnihguR5Vdd6Te"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline font-bold text-2xl">流體化整合</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Capabilities -->
+<section class="py-32 px-12 lg:px-24" id="capabilities">
+<div class="mb-16">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-4 text-primary">Claude 的核心能力</h2>
+<p class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant">The Industry Benchmark for Intelligence</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-10 flex flex-col gap-6 hover:bg-surface-container transition-all border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="edit_note">edit_note</span>
+<h3 class="font-headline text-2xl font-bold">文字創作</h3>
+<ul class="space-y-3 text-on-surface-variant text-sm list-disc list-inside">
+<li>撰寫文章、報告、email</li>
+<li>翻譯語言</li>
+<li>創意寫作</li>
+<li>總結與改寫</li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-10 flex flex-col gap-6 hover:bg-surface-container transition-all border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="terminal">terminal</span>
+<h3 class="font-headline text-2xl font-bold">程式開發</h3>
+<ul class="space-y-3 text-on-surface-variant text-sm list-disc list-inside">
+<li>寫程式碼 (Python, JS, HTML/CSS 等)</li>
+<li>Debug 修正錯誤</li>
+<li>解釋程式碼邏輯</li>
+<li>輔助演算法設計</li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-10 flex flex-col gap-6 hover:bg-surface-container transition-all border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="analytics">analytics</span>
+<h3 class="font-headline text-2xl font-bold">邏輯與分析</h3>
+<ul class="space-y-3 text-on-surface-variant text-sm list-disc list-inside">
+<li>問題解決</li>
+<li>數據分析</li>
+<li>行銷文案優化</li>
+<li>概念解釋與學習</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Basic Operation & Dialogue Skills -->
+<section class="py-32 px-12 lg:px-24 bg-surface-container-lowest" id="operation">
+<div class="max-w-4xl">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-12">基本操作與對話技巧</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-8">
+<h3 class="font-headline text-2xl font-bold text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">lightbulb</span> 實用技巧
+                    </h3>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="font-headline font-bold text-outline">01</span>
+<div>
+<h4 class="font-bold">明確標題</h4>
+<p class="text-sm text-on-surface-variant">給予簡短好懂的標題。</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="font-headline font-bold text-outline">02</span>
+<div>
+<h4 class="font-bold">一次一事</h4>
+<p class="text-sm text-on-surface-variant">避免多個主題混在一起。</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="font-headline font-bold text-outline">03</span>
+<div>
+<h4 class="font-bold">指定格式</h4>
+<p class="text-sm text-on-surface-variant">告訴 Claude 輸出的格式。</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="font-headline font-bold text-outline">04</span>
+<div>
+<h4 class="font-bold">有禮貌</h4>
+<p class="text-sm text-on-surface-variant">用詞遣字更精確。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container p-10 border-l-4 border-primary-container">
+<h3 class="font-headline text-3xl font-bold mb-8">提問黃金法則</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<p class="text-on-surface font-medium">Clear instructions: 明確具體的指示</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<p class="text-on-surface font-medium">Role-play: 為 Claude 設定角色</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<p class="text-on-surface font-medium">Examples: 提供範例 (Few-shot)</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<p class="text-on-surface font-medium">Context: 完整的背景資訊</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<p class="text-on-surface font-medium">Iterative optimization: 持續修正提問</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Artifacts Deep-dive -->
+<section class="py-32 px-12 lg:px-24" id="artifacts">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-6">Artifacts 深度指南</h2>
+<p class="font-body text-lg text-on-surface-variant">
+                    Artifacts 是 Claude 特有的預覽視窗，讓你可以並行查看程式碼、文件或網頁渲染結果，實現無縫的創作體驗。
+                </p>
+</div>
+<div class="font-headline text-8xl font-bold text-surface-container-high opacity-50 hidden lg:block">01</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-high p-12 relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale transition-transform duration-700 group-hover:scale-110" data-alt="clean dark coding environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-5yxmfNPOCFKw7xnmJi-Qa2ct0Gt4o4rMJkpwoTWcf5GEPNe08vZdRKuRHkiix0Ghq-gikt0LhyHRjBbnso6SNyRJ_nCC1cZBqOGY3So-1EbEA8Wxc0HGSOEREdn0YMmdmmxQxGz7uV5YybZkZ-fMSrTseR5dO9NkCgk3I9NBAd6HPOoFFM-Im3oVjKnl5ghnVMmggsH3O0fcNeEYrO1pzAvuLOrZW4_AM1adDGd2TNPOdywPcfYQnAvGt3zLnoMOt2mfeMd0LVZZ"/>
+<div class="relative z-10 h-full flex flex-col">
+<span class="bg-primary text-on-primary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-widest w-fit mb-6">核心功能</span>
+<h3 class="font-headline text-4xl font-bold mb-4 text-primary">Live Code Preview</h3>
+<p class="text-on-surface-variant text-sm max-w-xs mb-auto">
+                        即時預覽 React 組件、HTML 佈局及各式代碼執行結果。
+                    </p>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check</span> 網頁 (HTML/CSS/JS)</div>
+<div class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check</span> 文件 (Markdown, PDF)</div>
+<div class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check</span> 程式碼片段</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 bg-[#00daf3] p-12 group cursor-pointer">
+<div class="flex flex-col h-full text-[#001f24]">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<h3 class="font-headline text-3xl font-bold mb-2">啟動指令示範</h3>
+<p class="text-sm font-medium opacity-80 mb-6">透過特定指令快速觸發 Artifacts 生成內容：</p>
+<div class="space-y-2 font-mono text-xs">
+<div class="p-2 bg-black/10 rounded">"用 HTML 做一個記帳工具，要有列表跟圖表"</div>
+<div class="p-2 bg-black/10 rounded">"寫 Markdown 做一個技術手冊範本"</div>
+<div class="p-2 bg-black/10 rounded">"用 SVG 畫一個機器人圖示"</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="description">description</span>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest mb-2">Markdown Docs</h4>
+<p class="text-[10px] text-on-surface-variant uppercase">Technical writing reimagined.</p>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="draw">draw</span>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest mb-2">SVG Graphics</h4>
+<p class="text-[10px] text-on-surface-variant uppercase">Instant vector visualization.</p>
+</div>
+</div>
+</section>
+<!-- Computer Use (BETA) -->
+<section class="py-32 px-12 lg:px-24 bg-surface-container-low" id="computer">
+<div class="max-w-4xl mx-auto text-center mb-24">
+<span class="material-symbols-outlined text-6xl text-primary mb-8" data-icon="terminal">terminal</span>
+<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 uppercase">COMPUTER USE (BETA)</h2>
+<p class="font-body text-xl text-on-surface-variant leading-relaxed">
+                Claude 現在能像人類一樣使用電腦：觀察螢幕、移動游標、點擊按鈕以及輸入文字。這項突破性功能讓 AI 能夠執行複雜的多步驟任務。
+            </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-outline-variant/20">
+<div class="bg-surface p-16 space-y-6">
+<h3 class="font-headline text-2xl font-bold text-primary">01 / Perception (感知)</h3>
+<p class="text-on-surface-variant leading-relaxed">模型即時解讀螢幕截圖，理解 UI 元素、空間關係與視覺提示，甚至能辨識非標準化的介面。</p>
+</div>
+<div class="bg-surface p-16 space-y-6">
+<h3 class="font-headline text-2xl font-bold text-primary">02 / Action (動作)</h3>
+<p class="text-on-surface-variant leading-relaxed">將自然語言意圖轉化為精確的鍵盤與滑鼠座標指令，在任何應用程式中執行操作。</p>
+</div>
+<div class="bg-surface p-16 space-y-6">
+<h3 class="font-headline text-2xl font-bold text-primary">03 / Reasoning (推理)</h3>
+<p class="text-on-surface-variant leading-relaxed">具備自我修正行為：如果點擊失敗或出現錯誤，Claude 會重新評估螢幕狀態並嘗試不同路徑。</p>
+</div>
+<div class="bg-surface p-16 space-y-6">
+<h3 class="font-headline text-2xl font-bold text-primary">04 / Sandbox (沙盒)</h3>
+<p class="text-on-surface-variant leading-relaxed">在安全的隔離容器中運行，確保主機系統的完整性與安全性，並支援 Pro 以上方案使用。</p>
+</div>
+</div>
+<div class="mt-16 p-8 bg-surface-container-high border-l-4 border-primary text-sm flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">warning</span>
+<p class="text-on-surface-variant">注意：此功能尚處於 Beta 階段，執行時請務必在安全受控的環境下進行。</p>
+</div>
+</section>
+<!-- Claude Code -->
+<section class="py-32 px-12 lg:px-24" id="code">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<div>
+<h2 class="font-headline text-5xl font-bold mb-8 text-primary">Claude Code</h2>
+<p class="font-body text-lg text-on-surface-variant mb-12">
+                    這是 Anthropic 推出的終端機命令行工具 (CLI)，讓 AI 輔助開發流程變得極其高效。直接在終端機中與 Claude 協作編碼。
+                </p>
+<div class="space-y-6">
+<h4 class="font-headline font-bold uppercase tracking-widest text-xs text-outline">安裝方式 (Mac / Linux)</h4>
+<div class="bg-surface-container-highest p-6 font-mono text-sm border-l-2 border-primary">
+<p class="text-primary mb-2"># Step 1: Install</p>
+<p class="text-on-surface">npm install -g @anthropic-ai/claude-code</p>
+<p class="text-primary mt-4 mb-2"># Step 2: Check version</p>
+<p class="text-on-surface">claude --version</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-12 border border-outline-variant/10">
+<h3 class="font-headline text-2xl font-bold mb-8">常用基本指令</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="font-mono text-primary">claude</span>
+<span class="text-sm text-on-surface-variant">啟動對話</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="font-mono text-primary">claude -p "需求"</span>
+<span class="text-sm text-on-surface-variant">單次執行</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="font-mono text-primary">claude --help</span>
+<span class="text-sm text-on-surface-variant">查看幫助</span>
+</div>
+</div>
+<div class="mt-8 text-[10px] text-on-surface-variant uppercase tracking-widest">需要 API Key 才能執行</div>
+</div>
+</div>
+</section>
+<!-- Claude Skills -->
+<section class="py-32 px-12 lg:px-24 bg-surface-container-lowest" id="skills">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="font-headline text-5xl font-bold mb-6">Claude Skills</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                打造你的個人化 AI 工具箱。讓 Claude 學會特定的工作流程與專業技能。
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+<div class="bg-surface-container p-6 text-center border border-outline-variant/5">
+<span class="text-2xl font-headline font-bold text-primary block mb-2">01</span>
+<p class="text-xs font-bold uppercase">分析需求</p>
+</div>
+<div class="bg-surface-container p-6 text-center border border-outline-variant/5">
+<span class="text-2xl font-headline font-bold text-primary block mb-2">02</span>
+<p class="text-xs font-bold uppercase">撰寫 Skill</p>
+</div>
+<div class="bg-surface-container p-6 text-center border border-outline-variant/5">
+<span class="text-2xl font-headline font-bold text-primary block mb-2">03</span>
+<p class="text-xs font-bold uppercase">設定權限</p>
+</div>
+<div class="bg-surface-container p-6 text-center border border-outline-variant/5">
+<span class="text-2xl font-headline font-bold text-primary block mb-2">04</span>
+<p class="text-xs font-bold uppercase">導入資料</p>
+</div>
+<div class="bg-surface-container p-6 text-center border border-outline-variant/5">
+<span class="text-2xl font-headline font-bold text-primary block mb-2">05</span>
+<p class="text-xs font-bold uppercase">發布使用</p>
+</div>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-xl">應用範例</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">mail</span> 格式化撰寫 email 與定時發送
+                    </div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">search</span> 搜尋特定產業最新的 LLM 資訊
+                    </div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">bar_chart</span> 轉換報表格式至固定模板
+                    </div>
+</div>
+</div>
+<div class="h-64 relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale brightness-75 transition-transform duration-700 group-hover:scale-105" data-alt="abstract network of blue fiber optic cables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoD9VZsS9GaDmH_4WP9RY69AH1YFefQsAQS-8BGVQmkjwf6vihot7H9d-VwPv6pLvwq3X4wDcwG6guTe1tFjGsjXu-1gxFwtLO-SAEADL1iVxTefXL7o1EZv-NtI1OxxVznDtArZi2elWQHjtH8EIwHRXd-7CT35HAZ_Y7aonbE7EjHQtM226m4LCQRV6M9z2uFh_zMWbGVnsW6WE9xKc4_Wq0VNMQq73-YQmStAjvnYpsLe8wF62quu9kBsDxwZu89qKROYfVCMDB"/>
+</div>
+</div>
+</section>
+<!-- Pricing Plans -->
+<section class="py-32 px-12 lg:px-24 bg-surface-container-low" id="pricing">
+<div class="mb-16 text-center">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-4 text-primary">訂閱方案比較</h2>
+<p class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant">Choose the right fit for your needs</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="p-6 font-headline font-bold border border-outline-variant/10">主要功能比較</th>
+<th class="p-6 font-headline font-bold border border-outline-variant/10 text-center">Free</th>
+<th class="p-6 font-headline font-bold border border-outline-variant/10 text-center text-primary">Pro</th>
+<th class="p-6 font-headline font-bold border border-outline-variant/10 text-center">Team</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr>
+<td class="p-6 border border-outline-variant/10">Claude 3.5 Opus / Sonnet</td>
+<td class="p-6 border border-outline-variant/10 text-center text-error">✕ (限制使用)</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓ (5倍用量)</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓ (更高優先度)</td>
+</tr>
+<tr>
+<td class="p-6 border border-outline-variant/10">Artifacts 功能</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+</tr>
+<tr>
+<td class="p-6 border border-outline-variant/10">Computer Use</td>
+<td class="p-6 border border-outline-variant/10 text-center text-error">✕</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+</tr>
+<tr>
+<td class="p-6 border border-outline-variant/10">文件上傳 (PDF, Docx等)</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+<td class="p-6 border border-outline-variant/10 text-center text-primary-container">✓</td>
+</tr>
+<tr class="bg-surface-container-lowest">
+<td class="p-6 border border-outline-variant/10 font-bold">費用</td>
+<td class="p-6 border border-outline-variant/10 text-center">免費</td>
+<td class="p-6 border border-outline-variant/10 text-center font-bold text-primary">NT$640/月</td>
+<td class="p-6 border border-outline-variant/10 text-center">NT$1,100/用戶/月</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-high p-10 border-t-2 border-primary">
+<h3 class="font-headline text-2xl font-bold mb-6">API 方案</h3>
+<p class="text-on-surface-variant text-sm mb-6">適合開發者與企業規模化整合。採「按量計費」模式：</p>
+<ul class="space-y-4 text-xs font-mono">
+<li class="flex justify-between"><span>Claude 3 Haiku:</span> <span class="text-primary">$0.25/$1.25 per 1M tokens</span></li>
+<li class="flex justify-between"><span>Claude 3.5 Sonnet:</span> <span class="text-primary">$3.00/$15.00 per 1M tokens</span></li>
+<li class="flex justify-between"><span>Claude 3 Opus:</span> <span class="text-primary">$15.00/$75.00 per 1M tokens</span></li>
+</ul>
+</div>
+<div class="flex items-center justify-center p-10 border border-dashed border-outline-variant/30">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl text-outline mb-4">info</span>
+<p class="text-sm text-on-surface-variant">想更省錢嗎？善用 Pro 方案提供的 5 倍用量優勢，或選擇在 API 中使用更輕量的 Haiku 模型。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ & Resources -->
+<section class="py-32 px-12 lg:px-24" id="faq">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-8">
+<h2 class="font-headline text-5xl font-bold tracking-tight mb-12">常見問題與技巧</h2>
+<div class="space-y-8">
+<div class="group">
+<h4 class="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Q1: Claude 是否支援繁體中文？</h4>
+<p class="text-on-surface-variant leading-relaxed">A: 完美支援繁體中文，且語氣較其他模型更為自然、有禮。</p>
+</div>
+<div class="group">
+<h4 class="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Q2: 的用量不足怎麼辦？</h4>
+<p class="text-on-surface-variant leading-relaxed">A: 建議開啟「新對話」，清理歷史訊息；或考慮升級至 Pro 方案。</p>
+</div>
+<div class="group">
+<h4 class="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Q3: 如何上傳多個檔案？</h4>
+<p class="text-on-surface-variant leading-relaxed">A: 直接使用對話框旁的「夾帶」icon，支援上傳多達 5 個檔案。</p>
+</div>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container p-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<div>
+<p class="text-xs font-bold uppercase">進階技巧</p>
+<p class="text-sm text-on-surface-variant">上傳文件讓 Claude 根據內容分析與總結。</p>
+</div>
+</div>
+<div class="bg-surface-container p-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">link</span>
+<div>
+<p class="text-xs font-bold uppercase">網頁連結</p>
+<p class="text-sm text-on-surface-variant">給予網址內容進行分析 (限 Pro 方案)。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-surface-container-high p-12">
+<h3 class="font-headline font-bold text-2xl mb-8">實用連結</h3>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center justify-between group" href="https://claude.ai">
+<span class="font-bold">Claude.ai</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between group" href="https://docs.anthropic.com">
+<span class="font-bold">官方開發者文件</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between group" href="https://status.anthropic.com">
+<span class="font-bold">系統運行狀態</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+<div class="pt-8 mt-8 border-t border-outline-variant/10 text-xs text-on-surface-variant leading-relaxed">
+<p class="mb-4 font-bold text-on-surface">關於作者</p>
+                        這是一份精心編寫的技術手冊，旨在幫助每個人掌握未來最強大的生產力工具。內容涵蓋了從基礎操作到最新的 Beta 功能。
+                    </div>
+</nav>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#bac9cc]/10 bg-[#131314] flex flex-col items-center gap-12 py-24 px-12 text-center">
+<div class="text-4xl font-spaceGrotesk font-bold text-[#e5e2e3] tracking-tighter mb-4">
+        CLAUDE AI CURATOR.
+    </div>
+<div class="flex flex-wrap justify-center gap-12 max-w-4xl">
+<a class="font-inter text-[10px] tracking-[0.2em] uppercase text-[#bac9cc] hover:text-[#c3f5ff] transition-all" href="#">Documentation</a>
+<a class="font-inter text-[10px] tracking-[0.2em] uppercase text-[#bac9cc] hover:text-[#c3f5ff] transition-all" href="#">Privacy</a>
+<a class="font-inter text-[10px] tracking-[0.2em] uppercase text-[#bac9cc] hover:text-[#c3f5ff] transition-all" href="#">Changelog</a>
+<a class="font-inter text-[10px] tracking-[0.2em] uppercase text-[#bac9cc] hover:text-[#c3f5ff] transition-all" href="#">Status</a>
+<a class="font-inter text-[10px] tracking-[0.2em] uppercase text-[#bac9cc] hover:text-[#c3f5ff] transition-all" href="#">Support</a>
+</div>
+<div class="flex gap-6 mt-8">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="alternate_email">alternate_email</span>
+</div>
+<div class="font-inter text-[10px] tracking-[0.2em] uppercase text-on-surface-variant/40 mt-12">
+        © 2024 CLAUDE AI CURATOR. BUILT FOR THE FUTURE.
+    </div>
+</footer>
+</body></html>
